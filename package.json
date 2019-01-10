@@ -2,11 +2,17 @@
   "name": "webpacks-cool",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
-  "scripts": {},
+  "private": true,
+  "scripts": {
+    "start": "webpack"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^4.2.1"
+  },
+  "devDependencies": {
+    "webpack": "^4.28.1",
+    "webpack-cli": "^3.2.1"
   }
 }
