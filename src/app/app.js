@@ -1,4 +1,7 @@
 import WebpackImage from '../assets/webpack.svg';
+import mainHtmlContent from '../main.html';
+
+document.body.innerHTML = mainHtmlContent;
 
 const numberOneInput = document.getElementById('numberOne');
 const numberTwoInput = document.getElementById('numberTwo');
