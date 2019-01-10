@@ -5,5 +5,8 @@
   "main": "app.js",
   "scripts": {},
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.2.1"
+  }
 }
