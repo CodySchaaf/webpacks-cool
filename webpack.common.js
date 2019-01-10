@@ -1,4 +1,3 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 
@@ -9,9 +8,6 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
-        new HtmlWebpackPlugin({
-            title: 'Webpack is Cool'
-        })
     ],
     module: {
         rules: [
