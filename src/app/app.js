@@ -1,56 +1,20 @@
-import WebpackImage from '../assets/webpack.svg';
-import mainHtmlContent from '../main.html';
+import {parseInputs} from "./utils/parse-inputs";
+import {inputsAreValid} from "./utils/inputs-are-invalid";
 
-document.body.innerHTML = mainHtmlContent;
+export default (alertService, componentService) => {
+    alertService.hideErrors();
 
-const numberOneInput = document.getElementById('numberOne');
-const numberTwoInput = document.getElementById('numberTwo');
-const addValuesButton = document.getElementById('addValues');
-const resultDiv = document.getElementById('result');
-const errorBox = document.getElementById('error');
-const imageBox = document.getElementById('image');
-
-const parseInputs = (...input) => {
-    return input.map(str => parseInt(str));
-};
-
-const inputsAreValid = (...input) => {
-    return input.every(num => typeof num === 'number' && !isNaN(num));
-};
-
-const handleAdditionError = (inputs, numbers) => {
-    const fullMessage = inputs.reduce((message, str, index) => {
-        if (inputsAreValid(numbers[index])) {
-            return message + ''
+    componentService.onClick(() => {
+        alertService.hideErrors();
+        const inputs = componentService.getInputs();
+        const parsedInputs = parseInputs(...inputs);
+        if (inputsAreValid(...parsedInputs)) {
+            const [numA, numB] = parsedInputs;
+            componentService.setResult(numA + numB);
         } else {
-            return message + `${str} is not a number. `
+            componentService.setResult('');
+            alertService.handleAdditionError(inputs, parsedInputs);
         }
-    }, 'Please enter two valid numbers! ');
+    });
+}
 
-    errorBox.classList.remove('invisible');
-    errorBox.innerText = fullMessage;
-};
-
-const hideErrors = () => {
-    errorBox.classList.add('invisible');
-};
-
-hideErrors();
-
-const myImage = new Image();
-myImage.src = WebpackImage;
-
-imageBox.appendChild(myImage);
-
-addValuesButton.addEventListener('click', () => {
-    hideErrors();
-    const inputs = [numberOneInput.value, numberTwoInput.value];
-    const parsedInputs = parseInputs(...inputs);
-    if (inputsAreValid(...parsedInputs)) {
-        const [numA, numB] = parsedInputs;
-        resultDiv.innerText = numA + numB;
-    } else {
-        resultDiv.innerText = '';
-        handleAdditionError(inputs, parsedInputs);
-    }
-});
