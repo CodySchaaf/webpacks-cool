@@ -1,4 +1,3 @@
-import './main.scss';
 import './app/app';
 import mainHtmlContent from './main.html';
 import run from './app/app';
