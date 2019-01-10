@@ -1,8 +1,11 @@
+import WebpackImage from '../assets/webpack.svg';
+
 const numberOneInput = document.getElementById('numberOne');
 const numberTwoInput = document.getElementById('numberTwo');
 const addValuesButton = document.getElementById('addValues');
 const resultDiv = document.getElementById('result');
 const errorBox = document.getElementById('error');
+const imageBox = document.getElementById('image');
 
 const parseInputs = (...input) => {
     return input.map(str => parseInt(str));
@@ -30,6 +33,12 @@ const hideErrors = () => {
 };
 
 hideErrors();
+
+const myImage = new Image();
+myImage.src = WebpackImage;
+
+imageBox.appendChild(myImage);
+
 addValuesButton.addEventListener('click', () => {
     hideErrors();
     const inputs = [numberOneInput.value, numberTwoInput.value];
