@@ -1,7 +1,7 @@
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+import CleanWebpackPlugin from 'clean-webpack-plugin';
 
 
-module.exports = {
+export default {
     entry: {
         vendor: './src/vendor.js',
         main: './src/main.js',

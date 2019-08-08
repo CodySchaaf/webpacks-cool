@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "build": "webpack --config webpack.prod.js",
-    "start": "webpack-dev-server --config webpack.dev.js --open"
+    "start": "TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" webpack-dev-server --config webpack.dev.ts --open"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +13,9 @@
     "bootstrap": "^4.2.1"
   },
   "devDependencies": {
+    "@types/node": "^12.7.1",
+    "@types/webpack": "^4.32.1",
+    "@types/webpack-dev-server": "^3.1.7",
     "clean-webpack-plugin": "^1.0.0",
     "css-loader": "^2.1.0",
     "file-loader": "^3.0.1",
@@ -24,6 +27,8 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "terser-webpack-plugin": "^1.2.1",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3",
     "webpack": "^4.28.1",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14",

@@ -1,9 +1,11 @@
-const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import merge from 'webpack-merge';
+import common from './webpack.common';
+import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-module.exports = merge(common, {
+const foo: string = ''; // test to ensure ts is actually running
+
+export default merge(common, {
     mode: 'development',
     devtool: 'inline-source-map',
     devServer: {
